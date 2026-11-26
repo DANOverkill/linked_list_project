@@ -15,9 +15,28 @@ class LinkedList {
   }
 
   append(value) {
-    if (this.tail() === undefined) return (this.head = new Node(value));
-    else return (this.tail().next = new Node(value));
+    let tail = this.tail();
+    if (tail === undefined) this.head = new Node(value);
+    else tail.next = new Node(value);
   }
+
+  prepend(value) {
+    let oldHead = this.head;
+    this.head = new Node(value);
+    this.head.next = oldHead;
+  }
+
+  size() {}
+
+  head() {}
+
+  at(n) {}
+
+  contains(value) {}
+
+  findIndex(value) {}
+
+  toString() {}
 }
 
 export default LinkedList;
