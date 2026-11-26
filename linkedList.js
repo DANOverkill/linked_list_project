@@ -26,11 +26,33 @@ class LinkedList {
     this.head.next = oldHead;
   }
 
-  size() {}
+  size() {
+    let count = 0;
+    let currentLoc = this.head;
+    if (currentLoc === null) return count;
+    else {
+      while (currentLoc !== null) {
+        count++;
+        currentLoc = currentLoc.next;
+      }
+      return count;
+    }
+  }
 
-  head() {}
+  head() {
+    if (this.head.value === null) return undefined;
+    return this.head.value;
+  }
 
-  at(n) {}
+  at(n) {
+    if (n > this.size()) return undefined;
+    let currentNode = this.head;
+    for (let i = 0; i < n; i++) {
+      currentNode = currentNode.next;
+    }
+    if (currentNode === null) return undefined;
+    else return currentNode.value;
+  }
 
   contains(value) {}
 
