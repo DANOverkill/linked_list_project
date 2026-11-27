@@ -22,7 +22,8 @@
 
 ### Extra Credit
 
-1. `insertAt(index, ...values)` should insert new nodes with the given values at the given `index`. For example:
+1. `insertAt(index, ...values)` should insert new nodes with the given values at the given `index`. If the method is called with an index that is out of bounds (below 0 or above the list’s size), throw a `RangeError`.
+   For example:
 
 ```javascript
 // list that's already set up
@@ -34,7 +35,7 @@ console.log(list.toString());
 //=> "( 1 ) -> ( 10 ) -> ( 11 ) -> ( 2 ) -> ( 3 ) -> null"
 ```
 
-If the method is called with an index that is out of bounds (below 0 or above the list’s size), throw a `RangeError`. 2. `removeAt(index)` that removes the node at the given index. If the given `index` is out of bounds (below 0 or greater than or equal to the list’s size), throw a `RangeError`
+2. `removeAt(index)` that removes the node at the given index. If the given `index` is out of bounds (below 0 or greater than or equal to the list’s size), throw a `RangeError`
 
 _Extra Credit Tip:_ When you insert or remove a node, consider how it will affect the existing nodes. Some of the nodes will need their `nextNode` link updated.
 

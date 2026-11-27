@@ -88,6 +88,40 @@ class LinkedList {
       return string;
     }
   }
+
+  getNode(n) {
+    if (n >= this.size()) return undefined;
+    let currentNode = this.#head;
+    for (let i = 0; i < n; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+
+  insertAt(index, ...values) {
+    if (index < 0 || index > this.size())
+      throw new RangeError("Index out of bounds");
+    let currentNode = this.#head;
+    let restOfList = this.getNode(index);
+    if (index === 0) {
+      restOfList = currentNode;
+      let i = values.length - 1;
+      for (i; i >= 0; i--) {
+        this.prepend(values[i]);
+      }
+      return;
+    } else {
+      for (let i = 0; i < index - 1; i++) {
+        currentNode = currentNode.next;
+      }
+      values.forEach((element) => {
+        currentNode.next = new Node(element);
+        currentNode = currentNode.next;
+      });
+    }
+
+    currentNode.next = restOfList;
+  }
 }
 
 export default LinkedList;
