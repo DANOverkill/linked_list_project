@@ -7,3 +7,5 @@ list.append("orange");
 list.append("banana");
 list.append("kiwi");
 list.append("lemon");
+
+console.log(list.toString());
