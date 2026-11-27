@@ -99,7 +99,7 @@ class LinkedList {
   }
 
   insertAt(index, ...values) {
-    if (index < 0 || index > this.size())
+    if (index < 0 || index >= this.size())
       throw new RangeError("Index out of bounds");
     let currentNode = this.#head;
     let restOfList = this.getNode(index);
