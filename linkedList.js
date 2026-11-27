@@ -82,10 +82,10 @@ class LinkedList {
     else {
       let current = this.#head;
       while (current !== null) {
-        string = `${string} -> (${current.value})`;
+        string = `${string} (${current.value}) -> `;
         current = current.next;
       }
-      return string;
+      return `${string} ${null}`;
     }
   }
 
@@ -121,6 +121,20 @@ class LinkedList {
     }
 
     currentNode.next = restOfList;
+  }
+
+  removeAt(index) {
+    if (index < 0 || index >= this.size())
+      throw new RangeError("Index out of bounds");
+    if (index === 0) this.#head = this.#head.next;
+    else if (index === this.size() - 1) {
+      let previousNode = this.getNode(index - 1);
+      previousNode.next = null;
+    } else {
+      let previousNode = this.getNode(index - 1);
+      let nextNode = this.getNode(index + 1);
+      previousNode.next = nextNode;
+    }
   }
 }
 
